@@ -146,7 +146,7 @@ export class App extends React.Component<{}, State> {
   }
 
   addEmitterIfNeeded(localX: number, localY: number): void {
-    const emitterType = 1;
+    const emitterType = 0;
     if (this.state.shouldAddEmitter) {
       this.setState(
         (prevState) => {
