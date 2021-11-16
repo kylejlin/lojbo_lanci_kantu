@@ -1,5 +1,6 @@
 import { EmitterSpec } from "../emitter";
 
+// Flag draft 2
 export const _2021: EmitterSpec[] = [
   { type: 0, x: 286, y: 390 },
   { type: 0, x: 312, y: 320 },
@@ -89,4 +90,22 @@ export const _2021: EmitterSpec[] = [
   { type: 1, x: 202, y: 341 },
   { type: 1, x: 180, y: 427 },
   { type: 1, x: 199, y: 451 },
+  { type: 0, x: 341, y: 294 },
+  { type: 1, x: 439, y: 401 },
+  { type: 1, x: 864, y: 413 },
+  { type: 1, x: 281, y: 394 },
+  { type: 1, x: 499, y: 402 },
+  { type: 1, x: 671, y: 412 },
+  { type: 1, x: 618, y: 404 },
+  { type: 1, x: 655, y: 394 },
+  { type: 1, x: 551, y: 404 },
+  { type: 1, x: 484, y: 386 },
+  { type: 1, x: 755, y: 412 },
+  { type: 1, x: 810, y: 418 },
+  { type: 1, x: 379, y: 401 },
+  { type: 1, x: 566, y: 277 },
+  { type: 1, x: 571, y: 259 },
+  { type: 1, x: 561, y: 553 },
+  { type: 1, x: 587, y: 554 },
+  { type: 1, x: 851, y: 410 },
 ];

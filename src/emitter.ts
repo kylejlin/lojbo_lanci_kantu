@@ -101,7 +101,7 @@ export function getType1Emitter(ex: number, ey: number): Emitter {
           ay: b * vy,
 
           radius: 10 * d,
-          vRadius: fromMean(0.25, 0.25),
+          vRadius: fromMean(0.25, 0.5),
 
           r: 270,
           g: 120,
