@@ -2,7 +2,12 @@ import React from "react";
 import "./App.css";
 import { EmitterSpec } from "./emitter";
 import { EmitterPreset, SceneModifier, startAnimationLoop } from "./particles";
-import { getSavedEmitters, saveEmitters } from "./saveEmitters";
+import {
+  getSavedEmitters,
+  saveEmitters,
+  getSavedEmitterType,
+  saveEmitterType,
+} from "./persistentState";
 
 export class App extends React.Component<{}, State> {
   private canvasRef: React.RefObject<HTMLCanvasElement>;
@@ -14,6 +19,7 @@ export class App extends React.Component<{}, State> {
     window.app = this;
 
     this.state = {
+      emitterType: getSavedEmitterType() ?? 0,
       addedEmitters: getSavedEmitters(),
       shouldAddEmitter: false,
       sceneModifier: undefined,
@@ -50,6 +56,10 @@ export class App extends React.Component<{}, State> {
         this.loadPreset("lojbo_lanci");
       } else if (event.key === "2") {
         this.loadPreset("ohasai");
+      } else if (event.key === "[") {
+        this.decreaseEmitterType();
+      } else if (event.key === "]") {
+        this.increaseEmitterType();
       }
     });
     window.addEventListener("keyup", (event: KeyboardEvent): void => {
@@ -79,6 +89,26 @@ export class App extends React.Component<{}, State> {
       this.setState({ addedEmitters: specs });
       saveEmitters(specs);
     }
+  }
+
+  decreaseEmitterType(): void {
+    const newEmitterType: 0 | 1 = (this.state.emitterType === 0
+      ? 1
+      : this.state.emitterType - 1) as 0 | 1;
+    this.setState({
+      emitterType: newEmitterType,
+    });
+    saveEmitterType(newEmitterType);
+  }
+
+  increaseEmitterType(): void {
+    const newEmitterType: 0 | 1 = (this.state.emitterType === 1
+      ? 0
+      : this.state.emitterType + 1) as 0 | 1;
+    this.setState({
+      emitterType: newEmitterType,
+    });
+    saveEmitterType(newEmitterType);
   }
 
   removeEmitter(): void {
@@ -137,7 +167,7 @@ export class App extends React.Component<{}, State> {
   }
 
   addEmitterIfNeeded(localX: number, localY: number): void {
-    const emitterType = 0;
+    const { emitterType } = this.state;
     if (this.state.shouldAddEmitter) {
       this.setState(
         (prevState) => {
@@ -159,6 +189,7 @@ export class App extends React.Component<{}, State> {
 }
 
 export interface State {
+  emitterType: 0 | 1;
   addedEmitters: EmitterSpec[];
   shouldAddEmitter: boolean;
   sceneModifier: undefined | SceneModifier;
