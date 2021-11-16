@@ -1,7 +1,11 @@
 import { EmitterSpec } from "../emitter";
 
+const SCALE = 1;
+const DX = 2000;
+const DY = -250;
+
 // sai
-export const school: EmitterSpec[] = [
+const RAW: EmitterSpec[] = [
   { type: 1, x: 584, y: 960 },
   { type: 1, x: 652, y: 920 },
   { type: 1, x: 700, y: 880 },
@@ -73,3 +77,9 @@ export const school: EmitterSpec[] = [
   { type: 1, x: 184, y: 1060 },
   { type: 1, x: 100, y: 1072 },
 ];
+
+export const school: EmitterSpec[] = RAW.map((e) => ({
+  type: e.type,
+  x: e.x * SCALE + DX,
+  y: e.y * SCALE + DY,
+}));
