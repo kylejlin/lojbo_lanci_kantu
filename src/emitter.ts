@@ -21,6 +21,8 @@ export function fromSpec(spec: EmitterSpec): Emitter {
   }
 }
 
+const SCALE = 3;
+
 export function getType0Emitter(ex: number, ey: number): Emitter {
   const emitterX = ex;
   const emitterY = ey;
@@ -45,13 +47,13 @@ export function getType0Emitter(ex: number, ey: number): Emitter {
         out.push({
           x: emitterX,
           y: emitterY,
-          vx,
-          vy,
+          vx: SCALE * vx,
+          vy: SCALE * vy,
           ax: a * vx,
           ay: b * vy,
 
-          radius: 10 * d,
-          vRadius: fromMean(0.25, 0.25),
+          radius: SCALE * 10 * d,
+          vRadius: SCALE * fromMean(0.25, 0.25),
 
           r: 120,
           g: 120,
@@ -95,13 +97,13 @@ export function getType1Emitter(ex: number, ey: number): Emitter {
         out.push({
           x: emitterX,
           y: emitterY,
-          vx,
-          vy,
+          vx: SCALE * vx,
+          vy: SCALE * vy,
           ax: a * vx,
           ay: b * vy,
 
-          radius: 10 * d,
-          vRadius: fromMean(0.25, 0.5),
+          radius: SCALE * 10 * d,
+          vRadius: SCALE * fromMean(0.25, 0.5),
 
           r: 270,
           g: 120,

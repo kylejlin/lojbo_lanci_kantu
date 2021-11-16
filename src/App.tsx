@@ -115,8 +115,9 @@ export class App extends React.Component<{}, State> {
       <div className="App">
         <canvas
           ref={this.canvasRef}
-          width={2000}
-          height={800}
+          width={5000}
+          height={2000}
+          style={{ width: 5000 / 4, height: 2000 / 4 }}
           onClick={this.onCanvasClick}
         ></canvas>
       </div>

@@ -1,7 +1,11 @@
 import { EmitterSpec } from "../emitter";
 
+const SCALE = 3;
+const DX = -300;
+const DY = -250;
+
 // Flag draft 2
-export const _2021: EmitterSpec[] = [
+const RAW: EmitterSpec[] = [
   { type: 0, x: 286, y: 390 },
   { type: 0, x: 312, y: 320 },
   { type: 0, x: 382, y: 274 },
@@ -109,3 +113,9 @@ export const _2021: EmitterSpec[] = [
   { type: 1, x: 587, y: 554 },
   { type: 1, x: 851, y: 410 },
 ];
+
+export const _2021: EmitterSpec[] = RAW.map((e) => ({
+  type: e.type,
+  x: e.x * SCALE + DX,
+  y: e.y * SCALE + DY,
+}));
