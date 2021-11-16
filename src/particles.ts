@@ -144,26 +144,11 @@ export function startAnimationLoop(
     function loadPreset(type: EmitterPreset): EmitterSpec[] {
       let specs: EmitterSpec[];
       switch (type) {
-        case "seniors":
-          specs = presets.seniors;
+        case "lojbo_lanci":
+          specs = presets.lojbo_lanci;
           break;
-        case "21":
-          specs = presets._21;
-          break;
-        case "cupertino":
-          specs = presets.cupertino;
-          break;
-        case "high":
-          specs = presets.high;
-          break;
-        case "school":
-          specs = presets.school;
-          break;
-        case "ring":
-          specs = presets.ring;
-          break;
-        case "2021":
-          specs = presets._2021;
+        case "ohasai":
+          specs = presets.ohasai;
           break;
       }
       writeSpecs(specs);
@@ -247,14 +232,7 @@ function getStyle(color: Rgba): string {
   );
 }
 
-export type EmitterPreset =
-  | "seniors"
-  | "21"
-  | "cupertino"
-  | "high"
-  | "school"
-  | "ring"
-  | "2021";
+export type EmitterPreset = "lojbo_lanci" | "ohasai";
 
 export interface SceneModifier {
   pushEmitter(type: 0 | 1, localX: number, localy: number): void;

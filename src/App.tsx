@@ -47,19 +47,9 @@ export class App extends React.Component<{}, State> {
       if (event.key === "e") {
         this.setState({ shouldAddEmitter: true });
       } else if (event.key === "1") {
-        this.loadPreset("seniors");
+        this.loadPreset("lojbo_lanci");
       } else if (event.key === "2") {
-        this.loadPreset("21");
-      } else if (event.key === "3") {
-        this.loadPreset("cupertino");
-      } else if (event.key === "4") {
-        this.loadPreset("high");
-      } else if (event.key === "5") {
-        this.loadPreset("school");
-      } else if (event.key === "6") {
-        this.loadPreset("ring");
-      } else if (event.key === "7") {
-        this.loadPreset("2021");
+        this.loadPreset("ohasai");
       }
     });
     window.addEventListener("keyup", (event: KeyboardEvent): void => {

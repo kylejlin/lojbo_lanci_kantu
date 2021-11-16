@@ -4,7 +4,6 @@ const SCALE = 3;
 const DX = -300;
 const DY = -250;
 
-// Flag draft 2
 const RAW: EmitterSpec[] = [
   { type: 0, x: 286, y: 390 },
   { type: 0, x: 312, y: 320 },
@@ -114,7 +113,7 @@ const RAW: EmitterSpec[] = [
   { type: 1, x: 851, y: 410 },
 ];
 
-export const _2021: EmitterSpec[] = RAW.map((e) => ({
+export const lojbo_lanci: EmitterSpec[] = RAW.map((e) => ({
   type: e.type,
   x: e.x * SCALE + DX,
   y: e.y * SCALE + DY,

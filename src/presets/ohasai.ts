@@ -1,7 +1,7 @@
 import { EmitterSpec } from "../emitter";
 
 // o'asai
-export const high: EmitterSpec[] = [
+export const ohasai: EmitterSpec[] = [
   { type: 1, x: 4584, y: 1210 },
   { type: 1, x: 4652, y: 1170 },
   { type: 1, x: 4700, y: 1130 },
