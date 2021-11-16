@@ -137,9 +137,10 @@ export class App extends React.Component<{}, State> {
         }
       );
     } else {
-      const rect = (event.target as HTMLCanvasElement).getBoundingClientRect();
-      const localX = clientX - rect.left;
-      const localY = clientY - rect.top;
+      const canvas = event.target as HTMLCanvasElement;
+      const rect = canvas.getBoundingClientRect();
+      const localX = ((clientX - rect.left) * canvas.width) / rect.width;
+      const localY = ((clientY - rect.top) * canvas.height) / rect.height;
 
       this.addEmitterIfNeeded(localX, localY);
     }
