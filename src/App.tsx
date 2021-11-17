@@ -8,6 +8,7 @@ import {
   getSavedEmitterType,
   saveEmitterType,
 } from "./persistentState";
+import * as presets from "./presets";
 
 export class App extends React.Component<{}, State> {
   private canvasRef: React.RefObject<HTMLCanvasElement>;
@@ -20,7 +21,7 @@ export class App extends React.Component<{}, State> {
 
     this.state = {
       emitterType: getSavedEmitterType() ?? 0,
-      addedEmitters: getSavedEmitters(),
+      addedEmitters: getSavedEmitters() ?? getDefaultEmitters(),
       shouldAddEmitter: false,
       sceneModifier: undefined,
     };
@@ -133,6 +134,14 @@ export class App extends React.Component<{}, State> {
   render(): React.ReactElement {
     return (
       <div className="App">
+        <section>
+          <h1>Lojbanic Flag Particle Playground</h1>
+          <p>Scroll down for instructions.</p>
+          <p>
+            Warning: This can be a CPU-intensive web app, so for best results, I
+            don't recommend using it on an old computer.
+          </p>
+        </section>
         <canvas
           ref={this.canvasRef}
           width={7000}
@@ -140,6 +149,57 @@ export class App extends React.Component<{}, State> {
           style={{ width: 7000 / 4, height: 2000 / 4 }}
           onClick={this.onCanvasClick}
         ></canvas>
+        <section>
+          <h2>Instructions</h2>
+          <ul>
+            <li>
+              Press <span className="Key">1</span> to load the Lojbanic flag
+              preset. This will overwrite all existing work.
+            </li>
+            <li>
+              Press <span className="Key">2</span> to load the "o'asai" preset.
+              This will overwrite all existing work.
+            </li>
+            <li>
+              Hold <span className="Key">E</span> and click to add a particle
+              emitter.
+            </li>
+            <li>
+              Press <span className="Key">R</span> to remove the most recently
+              added particle emitter.
+            </li>
+            <li>
+              Press <span className="Key">[</span> to switch the particle
+              emitter type. This will only take effect starting with the next
+              added emitter.
+            </li>
+            <li>
+              Press <span className="Key">Space</span> to pause the animation.
+              <ul>
+                <li>
+                  Once paused, the animation can be resumed by holding down
+                  <span className="Key">Space</span>.
+                </li>
+                <li>
+                  The animation will resume while{" "}
+                  <span className="Key">Space</span> is held down.
+                </li>
+              </ul>
+            </li>
+            <li>
+              Press <span className="Key">T</span> to invert particle emitter
+              types.
+            </li>
+          </ul>
+        </section>
+        <footer>
+          <p>
+            This web app was created by{" "}
+            <a href="https://github.com/kylejlin">Kyle Lin</a>. The source can
+            be found under the MIT license{" "}
+            <a href="https://github.com/kylejlin/lojbo_lanci_kantu">here</a>.
+          </p>
+        </footer>
       </div>
     );
   }
@@ -193,4 +253,8 @@ export interface State {
   addedEmitters: EmitterSpec[];
   shouldAddEmitter: boolean;
   sceneModifier: undefined | SceneModifier;
+}
+
+function getDefaultEmitters(): EmitterSpec[] {
+  return presets.lojbo_lanci;
 }

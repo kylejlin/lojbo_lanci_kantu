@@ -7,10 +7,10 @@ export function saveEmitters(specs: EmitterSpec[]): void {
   localStorage.setItem(COORDINATES_KEY, JSON.stringify(specs));
 }
 
-export function getSavedEmitters(): EmitterSpec[] {
+export function getSavedEmitters(): undefined | EmitterSpec[] {
   const savedString = localStorage.getItem(COORDINATES_KEY);
   if (savedString === null) {
-    return [];
+    return undefined;
   } else {
     return JSON.parse(savedString);
   }
