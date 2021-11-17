@@ -190,6 +190,17 @@ export class App extends React.Component<{}, State> {
               Press <span className="Key">T</span> to invert particle emitter
               types.
             </li>
+            <li>
+              To download an image of what you see on the screen, right click
+              and then click "Save Image As", just as you would download an
+              ordinary image.
+              <ul>
+                <li>
+                  If you download the image as a PNG, the background of the
+                  downloaded image will be transparent.
+                </li>
+              </ul>
+            </li>
           </ul>
         </section>
         <footer>
