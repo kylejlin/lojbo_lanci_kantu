@@ -207,8 +207,9 @@ export class App extends React.Component<{}, State> {
           <p>
             This web app was created by{" "}
             <a href="https://github.com/kylejlin">Kyle Lin</a>. The source can
-            be found under the MIT license{" "}
-            <a href="https://github.com/kylejlin/lojbo_lanci_kantu">here</a>.
+            be found{" "}
+            <a href="https://github.com/kylejlin/lojbo_lanci_kantu">here</a>,
+            under the MIT license.
           </p>
         </footer>
       </div>
